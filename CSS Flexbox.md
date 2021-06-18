@@ -46,7 +46,14 @@ Items are layed out along two axis based on the defined `flex-flow` and the [wri
 
 ## Flex Items Properties
 
-tbd
+| value       | effect on item                                                                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| flex-grow   | **default: 0 - no grow**; numeric value that defines the rate at which the item can grow if there is space available in the flex container |
+| flex-shrink | **default: 1**; numeric value that defines the rate at which the item shrinks                                                              |
+| flex-basis  | **default: auto - consider width/length** default size of an element before the remaining space is distributed                             |
+| flex        | shorthand for `[flex-grow]` `[flex-shrink]`  `[flex-basis]`                                                                                |
+| align-self  | override value set by `align-items` for this item only                                                                                     |
+| order       | specify order of item by numeric value (by default items appear in source order)                                                           |
 
 ---
 
