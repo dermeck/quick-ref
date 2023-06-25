@@ -69,3 +69,34 @@ auth        sufficient  pam_rootok.so
 
 ### Change config files
 `~/.config/fish`
+
+
+## NodeJs
+
+```bash
+# add repo
+sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
+
+# install
+sudo apt -y install nodejs
+```
+
+---
+
+troubleshhot `Fix sub-process /usr/bin/dpkg returned an error code (1)`
+```bash
+# clean out unused software
+sudo apt autoremove
+
+# remove bad package
+sudo apt-get remove --purge package_name
+
+# force install
+sudo apt-get install -f
+
+# reconfigure dpkg
+sudo dpkg --configure -a
+```
+https://phoenixnap.com/kb/fix-sub-process-usr-bin-dpkg-returned-error-code-1
+
