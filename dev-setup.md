@@ -102,7 +102,7 @@ https://phoenixnap.com/kb/fix-sub-process-usr-bin-dpkg-returned-error-code-1
 
 ## Firefox Developer Edition
 
-### 1. Downlaod and Install
+### 1. Download and Install
 ```bash
 # Download
 wget "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" -O Firefox-dev.tar.bz2
