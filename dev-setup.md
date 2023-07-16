@@ -100,3 +100,76 @@ sudo dpkg --configure -a
 ```
 https://phoenixnap.com/kb/fix-sub-process-usr-bin-dpkg-returned-error-code-1
 
+## Firefox Developer Edition
+
+### 1. Downlaod and Install
+```bash
+# Download
+wget "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" -O Firefox-dev.tar.bz2
+
+# Unpack
+sudo tar xjf Firefox-dev.tar.bz2 -C /opt/
+
+# Remove Tar
+rm -r Firefox-dev.tar.bz2
+
+# Create Symlink (to us it globally)
+sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox-dev
+```
+
+The application can now be run with `firefox-dev`.
+
+### 2. Desktop Icon + Dock
+
+```bash
+# Create Desktop file
+nano Firefox-dev.desktop
+```
+
+File Content:
+```
+[Desktop Entry]
+Version=1.0
+Name=Firefox Developer Edition
+Exec=/usr/local/bin/firefox-dev %u
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
+comment=browser
+Type=Application
+Terminal=false
+Encoding=UTF-8
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+Keywords=web;browser;internet;
+Actions=new-window;new-private-window;
+StartupWMClass=Firefox Developer Edition;
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=/usr/local/bin/firefox-dev %u
+
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Exec=/usr/local/bin/firefox-dev --private-window %u
+```
+
+```bash
+# Put it to the right place
+sudo cp Firefox-dev.desktop /usr/share/applications/
+
+# Make sure it's executable
+sudo chmod +x /usr/share/applications/Firefox-dev.desktop
+```
+
+### 3. Uninstall
+```bash
+sudo rm -r /opt/firefox/
+sudo rm /usr/local/bin/firefox-dev
+sudo rm /usr/share/applications/Firefox-dev.desktop
+```
+
+
+### Resources
+- https://linux.how2shout.com/how-to-install-firefox-developer-edition-on-ubuntu-22-04-or-20-04/ 
+- https://averagelinuxuser.com/ubuntu_custom_launcher_dock/
+- https://wiki.ubuntuusers.de/opt/
