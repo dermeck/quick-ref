@@ -21,3 +21,9 @@ sudo  echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save
 # set as boot parameter
 sudo kernelstub -a "snd_hda_intel.power_save=0"
 ```
+
+## Autostart Nextcloud client
+1. Launcher `Startup Applications`
+2. Add new entry for NextCloucd:
+   - command: `flatpak run com.nextcloud.desktopclient.nextcloud`
+
