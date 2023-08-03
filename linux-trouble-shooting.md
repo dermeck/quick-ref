@@ -22,6 +22,8 @@ sudo  echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save
 sudo kernelstub -a "snd_hda_intel.power_save=0"
 ```
 
+https://community.frame.work/t/tracking-headphone-jack-intermittent-noise/5246/61
+
 ## Autostart Nextcloud client
 1. Launcher `Startup Applications`
 2. Add new entry for NextCloucd:
