@@ -29,3 +29,54 @@ https://community.frame.work/t/tracking-headphone-jack-intermittent-noise/5246/6
 2. Add new entry for NextCloucd:
    - command: `flatpak run com.nextcloud.desktopclient.nextcloud`
 
+
+## Setup Printer
+
+```bash
+# check if printer is connected
+lsusb
+    Bus 003 Device 004: ID 03f0:e82a HP, Inc HP Laser 107a
+```
+
+### find ipp
+```bash
+ps ax | grep ipp
+   8266 ?        SNsl   0:00 /sbin/ipp-usb udev
+   8986 pts/0    S<+    0:00 grep --color=auto ipp
+```
+
+### remove
+`sudo apt purge ipp-usb`
+
+### restart cups
+```
+sudo systemctl restart cups
+``` 
+
+### Configure in CUPS
+
+`localhost:631`
+(login with your admin user)
+
+Add Printer, `Administration -> Add Printer`
+
+Driver:
+- (Laser 10xs)
+- HP Laser Ns 1020, hpcups 3.21.12 (grayscale)
+
+Print Testpage
+`Printers`-> Drucker wählen -> `Maintenance`
+
+
+you may have to change rights
+```
+sudo usermod -a -G lpadmin <username>
+```
+
+### Ressources:
+https://askubuntu.com/questions/1279136/using-hp-laser-107a-with-ubuntu-20-04
+> This indicates that the printer understands the IPP-over-USB protocol. See here. On Ubuntu 20.04 ippusbxd is responsible for IPP-over-USB communication. ippusbxd commandeers the USB interface so that nothing else can use it. That is why lpinfo -v does not show a usb URI. Manjaro does not use ippusbxd by default as Ubuntu does.
+
+https://wiki.debian.org/CUPSDriverlessPrinting
+
+(dpkg -S ipp-usb)
