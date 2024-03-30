@@ -20,8 +20,12 @@ Exec=/path/to/file.AppImage
 Icon=/path/to/icon.png
 Terminal=false
 Type=Application
-
 ```
+
+## Add it to the "Open With Other Application" dialog (optional)
+- append `%F` to the exec line to indicate that a list of files can be passed to the app (see [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) for details)
+  
+ `Exec=/path/to/file.AppImage %F`
 
 ## Add it to Autostart (optional)
 for GNOME
@@ -32,5 +36,6 @@ gnome-session-properties
 Add the respective entry, like `/home/<user>>/apps/Nextcloud.AppImage  --background`
 
 ## Ressources
+- https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
 - https://pop-os.github.io/docs/manage-apps/using-appimages.html
 - https://github.com/ryonakano/pinit
