@@ -1,0 +1,1 @@
+Test scripts from https://www.maxdesign.com.au/articles/console.html
